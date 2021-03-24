@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Pills_Gothic';
+    src: url('/assets/fonts/Pill_Gothic_600mg_Regular.ttf') format('truetype')
+}
+
+html, body {
+}
+
+body {
+    margin: 0;
+    font-family: Pills_Gothic, "Helvetica Neue", sans-serif;
+}

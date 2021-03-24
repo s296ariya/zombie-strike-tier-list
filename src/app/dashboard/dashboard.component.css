@@ -1,0 +1,21 @@
+.tier-list {
+}
+
+.tier {
+    display: flex;
+}
+
+.tier-title {
+    font-size: 50px;
+    padding: 20px;
+    border: 1px solid red;
+    width: 52px;
+    height: 82px;
+    margin: 5px 10px 30px 10px;
+    text-align: center;
+    line-height: 65px;
+}
+
+dashboard-hero {
+    max-width: 115px;
+}

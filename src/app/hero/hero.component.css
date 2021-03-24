@@ -1,0 +1,154 @@
+.hero {
+    margin: 10px;
+    width: fit-content;
+    border: 10px solid;
+}
+
+.header {
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    /*-webkit-text-stroke: 3px black;*/
+    text-shadow: 4px 4px black;
+}
+
+.faction {
+    height: 60px;
+    position: relative;
+    top: 8px;
+    margin-right: 10px;
+}
+
+.class {
+    height: 60px;
+    position: relative;
+    top: 6px;
+    margin-left: 10px;
+}
+
+.name {
+    vertical-align: top;
+    line-height: 74px;
+}
+
+.top-container {
+    display: flex;
+    min-height: 155px;
+    margin-left: 5px;
+}
+
+.name-bar {
+    display: grid;
+}
+
+.hero-portrait {
+    width: 150px;
+}
+
+.hero-build-level {
+    font-size: 30px;
+    width: 146px;
+    float: left;
+    position: relative;
+    margin-right: -150px;
+    text-align: right;
+    margin-top: 8px;
+    -webkit-text-stroke: 1px white;
+}
+
+.hero-build-9s {
+    width: 150px;
+    margin-top: -37px;
+    text-align: center;
+}
+
+.hero-build-9s-image {
+    width: 113px;
+}
+
+.hero-build-e2 {
+    width: 150px;
+    margin-top: -45px;
+    text-align: center;
+}
+
+.hero-build-e2-image {
+    width: 113px;
+}
+
+.hero-build-e4 {
+    width: 150px;
+    margin-top: -45px;
+    text-align: center;
+}
+
+.hero-build-e4-image {
+    width: 113px;
+}
+
+.hero-jewel {
+    margin: 10px 5px 5px 5px;
+}
+
+.hero-accessory {
+    margin: 10px 5px 5px 5px;
+    width: 129px;
+    height: 129px;
+}
+
+.bottom-container {
+    display: inline-flex;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.talent-container {
+    text-align: center;
+}
+
+.talent-level {
+    display: inline-flex;
+}
+
+.talent-image {
+    height: 63px;
+    width: 63px;
+}
+
+.talent-emblem-group {
+    display: inline-flex;
+}
+
+.vertical-line {
+    border-left: 4px solid rgb(212, 212, 212);
+    height: 50px;
+    margin-left: calc(50% - 2px);
+}
+
+.vertical-talent-enabled {
+    border-left: 4px solid rgb(212, 210, 7);
+}
+
+.horizontal-line {
+    border-top: 4px solid rgb(212, 212, 212);
+    width: 40px;
+    margin: 30px 5px 0 5px;
+}
+
+.talent-enabled {
+    border-top: 4px solid rgb(212, 210, 7);
+}
+
+.talent-image-disabled {
+    filter: grayscale(1);
+}
+
+.talent-emblem {
+    height: 35px;
+    margin-top: 15px;
+}
+
+.build-not-found {
+    padding-top: 10px;
+    font-size: 50px;
+}

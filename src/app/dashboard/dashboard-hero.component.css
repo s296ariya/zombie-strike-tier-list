@@ -1,0 +1,58 @@
+.hero-link {
+    color: black;
+    text-decoration: none;
+}
+
+.hero-build-container {
+    text-align: center;
+    margin: 5px 5px 0px 5px;
+}
+
+.hero-build-level {
+    font-size: 18px;
+    width: 102px;
+    float: left;
+    position: relative;
+    margin-right: -121px;
+    text-align: right;
+    margin-top: 3px;
+    text-shadow: 1px 1px white, -1px 1px white, -1px -1px white, 1px -1px white;
+}
+
+.hero-build-9s {
+    width: 104px;
+    margin-top: -22px;
+    text-align: center;
+}
+
+.hero-build-9s-image {
+    width: 75px;
+}
+
+.hero-build-e2 {
+    width: 104px;
+    margin-top: -40px;
+    text-align: center;
+}
+
+.hero-build-e4 {
+    width: 104px;
+    margin-top: -40px;
+    text-align: center;
+}
+
+.hero-build-bottom-bar {
+    height: 30px;
+}
+
+.hero-build-jewel {
+    height: 30px;
+    vertical-align: top;
+    line-height: 34px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.hero-build-accessory {
+    height: 30px;
+}

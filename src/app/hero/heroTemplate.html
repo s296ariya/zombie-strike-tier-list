@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/stylesheets/heroTemplate.css">
+</head>
+<body>
+<div style="background-color:rgba({{.Faction.Colour.R}}, {{.Faction.Colour.G}}, {{.Faction.Colour.B}}, {{.Faction.Colour.A}})"
+     class="text">
+    <div>
+        <div class="name">
+            <img src="../static/images/{{.Faction.ImageName}}" class="faction">
+            {{.Name}}
+            <img src="../static/images/{{.Class.ImageName}}" class="class">
+        </div>
+    </div>
+    <div>
+        <div class="hero-portrait-container">
+            <img src="../static/images/{{.ImageName}}" class="hero-portrait">
+            <img src="../static/images/base-H14.png" class="hero-portrait-e4">
+        </div>
+    </div>
+    <div class="bottom-container">
+        <div class="talent-container">
+            <div>
+                <div class="talent-level">
+                    <img src="../static/images/{{(index .Talents.E1Talents 0).ImageName}}">
+                    <div class="talent-emblem-group">
+                        <div class="horizontal-line-false"></div>
+                        <img src="../static/images/base-H11.png" class="talent-emblem">
+                        <div class="horizontal-line-false"></div>
+                    </div>
+                    <img src="../static/images/{{(index .Talents.E1Talents 1).ImageName}}">
+                </div>
+                <div class="vertical-line"></div>
+                <div class="talent-level">
+                    <img src="../static/images/{{(index .Talents.E2Talents 0).ImageName}}">
+                    <div class="talent-emblem-group">
+                        <div class="horizontal-line-false"></div>
+                        <img src="../static/images/base-H12.png" class="talent-emblem">
+                        <div class="horizontal-line-false"></div>
+                    </div>
+                    <img src="../static/images/{{(index .Talents.E2Talents 1).ImageName}}">
+                </div>
+                <div class="vertical-line"></div>
+                <div class="talent-level">
+                    <img src="../static/images/{{(index .Talents.E3Talents 0).ImageName}}">
+                    <div class="talent-emblem-group">
+                        <div class="horizontal-line-false"></div>
+                        <img src="../static/images/base-H13.png" class="talent-emblem">
+                        <div class="horizontal-line-false"></div>
+                    </div>
+                    <img src="../static/images/{{(index .Talents.E3Talents 1).ImageName}}">
+                </div>
+            </div>
+            <div class="vertical-line"></div>
+            <div>
+                <img src="../static/images/base-H14.png" class="talent-emblem">
+            </div>
+            <div>
+                <img src="../static/images/{{.Talents.E4Talent.ImageName}}">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

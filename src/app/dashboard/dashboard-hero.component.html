@@ -1,0 +1,21 @@
+<div class="hero-build-container">
+    <div style="background-color: {{heroBuild.hero.faction.colour}}"
+         matTooltip="{{heroBuild.hero.code}} - {{heroBuild.code}}" matTooltipShowDelay="300">
+        <a (click)="navigate('/heroes/'+heroBuild.hero.code)" class="hero-link">
+            {{heroBuild.hero.name}}
+            <div>
+                <img src="assets/images/{{heroBuild.hero.imageName}}">
+                <span class="hero-build-level">{{heroBuild.level}}</span>
+                <div [class]="'hero-build-' + heroBuild.evolution">
+                    <img src="assets/images/herobuild-{{heroBuild.evolution}}.png"
+                         [class]="'hero-build-' + heroBuild.evolution + '-image'">
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="hero-build-bottom-bar">
+        <span *ngIf="showJewelAccessory" class="hero-build-jewel">{{heroBuild.jewel.code}}</span>
+        <img *ngIf="showJewelAccessory" src="assets/images/{{heroBuild.accessory.imageName}}"
+             class="hero-build-accessory" matTooltip="{{heroBuild.accessory.name}}" matTooltipShowDelay="300">
+    </div>
+</div>
