@@ -3,7 +3,6 @@ import './polyfills';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import 'reflect-metadata';
-import 'core-js';
 
 import { AppModule } from './app/app.module';
 

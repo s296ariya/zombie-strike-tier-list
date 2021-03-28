@@ -24,7 +24,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --base-href=/zombie-strike-tier-list/",
     "build": "ng build",
     "prod": "ng build --prod --base-href=/zombie-strike-tier-list/",
     "test": "ng test",
