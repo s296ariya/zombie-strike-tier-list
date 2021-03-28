@@ -18,7 +18,7 @@ import { Category, Tier } from "./model/tier.model";
     styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-    name = "Angular " + VERSION.major;
+    public appVersion = environment.appVersion;
 
     constructor(private store: Store) {
     }
