@@ -1,6 +1,6 @@
 {
   "name": "zombie-strike-tier-list",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@angular/animations": "^11.0.2",

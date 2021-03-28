@@ -2,6 +2,8 @@ import { Component } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ParameterStore, Store } from "../store";
 import { Hero } from "../model/hero.model";
+import { Stats } from "../model/dictionary.model";
+import { HeroBuild } from "../model/hero-build.model";
 
 @Component({
     selector: "hero",
@@ -42,5 +44,17 @@ export class HeroComponent {
             .get(this._categoryKey)
             .get(this.hero.code)
             .findIndex(heroBuildTierPlacement => heroBuildTierPlacement.heroBuild.code == this._heroBuildCode);
+    }
+
+    getCombinedStats(heroBuild:HeroBuild) {
+        let combinedStats = new Stats();
+        combinedStats.add(this.hero.talents.e1Talents[heroBuild.talents.e1Talent - 1].stats);
+        combinedStats.add(this.hero.talents.e2Talents[heroBuild.talents.e2Talent - 1].stats);
+        combinedStats.add(this.hero.talents.e3Talents[heroBuild.talents.e3Talent - 1].stats);
+        combinedStats.add(this.hero.talents.e4Talent.stats);
+        combinedStats.add(heroBuild.jewel.stats);
+        combinedStats.add(heroBuild.accessory.stats);
+
+        return combinedStats;
     }
 }

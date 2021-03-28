@@ -1,87 +1,107 @@
 <div class="hero" style="border-color: {{hero.faction.colour}}">
-    <div style="background-color: {{hero.faction.colour}}">
-        <div class="header">
-            <img src="assets/images/{{hero.faction.imageName}}" class="faction">
-            <span class="name">{{hero.name}}</span>
-            <img src="assets/images/{{hero.class.imageName}}" class="class">
-        </div>
+    <div class="header" style="background-color: {{hero.faction.colour}}">
+        <img src="assets/images/{{hero.faction.imageName}}" class="faction">
+        <span class="name">{{hero.name}}</span>
+        <img src="assets/images/{{hero.class.imageName}}" class="class">
     </div>
-    <mat-tab-group [selectedIndex]="selectedCategoryIndex()">
+    <mat-tab-group [selectedIndex]="selectedCategoryIndex()" color="accent">
         <mat-tab *ngFor="let category of store.categories" label="{{category.name}}"
                  [disabled]="store.heroBuildPlacementsCategoryHeroMap.get(category.key).get(hero.name).length == 0">
             <ng-template matTabContent>
                 <mat-tab-group [selectedIndex]="selectedHeroBuildIndex()">
-                    <mat-tab
-                            *ngFor="let heroBuildTierPlacement of store.heroBuildPlacementsCategoryHeroMap.get(category.key).get(hero.name)"
-                            label="({{heroBuildTierPlacement.placement.tierName}}) {{heroBuildTierPlacement.heroBuild.code}}">
+                    <mat-tab *ngFor="let heroBuildTierPlacement of store.heroBuildPlacementsCategoryHeroMap.get(category.key).get(hero.name)"
+                             label="({{heroBuildTierPlacement.placement.tierName}}) {{heroBuildTierPlacement.heroBuild.code}}">
                         <ng-template matTabContent>
-                            <div class="top-container">
-                                <div>
-                                    <img src="assets/images/{{hero.imageName}}" class="hero-portrait">
-                                    <span class="hero-build-level">{{heroBuildTierPlacement.heroBuild.level}}</span>
-                                    <div [class]="'hero-build-' + heroBuildTierPlacement.heroBuild.evolution">
-                                        <img src="assets/images/herobuild-{{heroBuildTierPlacement.heroBuild.evolution}}.png"
-                                             [class]="'hero-build-' + heroBuildTierPlacement.heroBuild.evolution + '-image'">
+                            <div class="build-info">
+                                <div class="top-container">
+                                    <div>
+                                        <img src="assets/images/{{hero.imageName}}" class="hero-portrait">
+                                        <span class="hero-build-level">{{heroBuildTierPlacement.heroBuild.level}}</span>
+                                        <div [class]="'hero-build-' + heroBuildTierPlacement.heroBuild.evolution">
+                                            <img src="assets/images/herobuild-{{heroBuildTierPlacement.heroBuild.evolution}}.png"
+                                                 [class]="'hero-build-' + heroBuildTierPlacement.heroBuild.evolution + '-image'">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img src="assets/images/{{heroBuildTierPlacement.heroBuild.jewel.imageName}}" class="hero-jewel"
+                                             matTooltip="{{heroBuildTierPlacement.heroBuild.jewel.name}}" matTooltipShowDelay="300">
+                                    </div>
+                                    <div>
+                                        <img src="assets/images/{{heroBuildTierPlacement.heroBuild.accessory.imageName}}" class="hero-accessory"
+                                             matTooltip="{{heroBuildTierPlacement.heroBuild.accessory.name}}" matTooltipShowDelay="300">
                                     </div>
                                 </div>
-                                <div>
-                                    <img src="assets/images/{{heroBuildTierPlacement.heroBuild.jewel.imageName}}"
-                                         class="hero-jewel" matTooltip="{{heroBuildTierPlacement.heroBuild.jewel.name}}"
-                                         matTooltipShowDelay="300">
-                                </div>
-                                <div>
-                                    <img src="assets/images/{{heroBuildTierPlacement.heroBuild.accessory.imageName}}"
-                                         class="hero-accessory" matTooltip="{{heroBuildTierPlacement.heroBuild.accessory.name}}"
-                                         matTooltipShowDelay="300">
-                                </div>
-                            </div>
-                            <div class="bottom-container"
-                                 *ngIf="heroBuildTierPlacement.heroBuild.evolution.startsWith('e')">
-                                <div class="talent-container">
-                                    <div>
-                                        <div class="talent-level">
-                                            <img src="assets/images/{{hero.talents.e1Talents[0].imageName}}"
-                                                 [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.talents.e1Talent != 1}">
-                                            <div class="talent-emblem-group">
-                                                <div [ngClass]="{'horizontal-line': true, 'talent-enabled': heroBuildTierPlacement.heroBuild.talents.e1Talent == 1}"></div>
-                                                <img src="assets/images/base-H11.png" class="talent-emblem">
-                                                <div [ngClass]="{'horizontal-line': true, 'talent-enabled': heroBuildTierPlacement.heroBuild.talents.e1Talent == 2}"></div>
+                                <div class="bottom-container" *ngIf="heroBuildTierPlacement.heroBuild.evolution.startsWith('e')">
+                                    <div class="talent-container">
+                                        <div>
+                                            <div class="talent-level">
+                                                <img src="assets/images/{{hero.talents.e1Talents[0].imageName}}"
+                                                     [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.talents.e1Talent != 1}">
+                                                <div class="talent-emblem-group">
+                                                    <div [ngClass]="{'horizontal-line': true, 'talent-enabled': heroBuildTierPlacement.heroBuild.talents.e1Talent == 1}"></div>
+                                                    <img src="assets/images/base-H11.png" class="talent-emblem">
+                                                    <div [ngClass]="{'horizontal-line': true, 'talent-enabled': heroBuildTierPlacement.heroBuild.talents.e1Talent == 2}"></div>
+                                                </div>
+                                                <img src="assets/images/{{hero.talents.e1Talents[1].imageName}}"
+                                                     [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.talents.e1Talent != 2}">
                                             </div>
-                                            <img src="assets/images/{{hero.talents.e1Talents[1].imageName}}"
-                                                 [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.talents.e1Talent != 2}">
-                                        </div>
-                                        <div [ngClass]="{'vertical-line': true, 'vertical-talent-enabled': heroBuildTierPlacement.heroBuild.evolution.startsWith('e')}"></div>
-                                        <div class="talent-level">
-                                            <img src="assets/images/{{hero.talents.e2Talents[0].imageName}}"
-                                                 [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.talents.e2Talent != 1}">
-                                            <div class="talent-emblem-group">
-                                                <div [ngClass]="{'horizontal-line': true, 'talent-enabled': heroBuildTierPlacement.heroBuild.talents.e2Talent == 1}"></div>
-                                                <img src="assets/images/base-H12.png" class="talent-emblem">
-                                                <div [ngClass]="{'horizontal-line': true, 'talent-enabled': heroBuildTierPlacement.heroBuild.talents.e2Talent == 2}"></div>
+                                            <div [ngClass]="{'vertical-line': true, 'vertical-talent-enabled': heroBuildTierPlacement.heroBuild.evolution.startsWith('e')}"></div>
+                                            <div class="talent-level">
+                                                <img src="assets/images/{{hero.talents.e2Talents[0].imageName}}"
+                                                     [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.talents.e2Talent != 1}">
+                                                <div class="talent-emblem-group">
+                                                    <div [ngClass]="{'horizontal-line': true, 'talent-enabled': heroBuildTierPlacement.heroBuild.talents.e2Talent == 1}"></div>
+                                                    <img src="assets/images/base-H12.png" class="talent-emblem">
+                                                    <div [ngClass]="{'horizontal-line': true, 'talent-enabled': heroBuildTierPlacement.heroBuild.talents.e2Talent == 2}"></div>
+                                                </div>
+                                                <img src="assets/images/{{hero.talents.e2Talents[1].imageName}}"
+                                                     [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.talents.e2Talent != 2}">
                                             </div>
-                                            <img src="assets/images/{{hero.talents.e2Talents[1].imageName}}"
-                                                 [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.talents.e2Talent != 2}">
+                                            <div [ngClass]="{'vertical-line': true, 'vertical-talent-enabled': heroBuildTierPlacement.heroBuild.evolution == 'e4'}"></div>
+                                            <div class="talent-level">
+                                                <img src="assets/images/{{hero.talents.e3Talents[0].imageName}}"
+                                                     [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.talents.e3Talent != 1}">
+                                                <div class="talent-emblem-group">
+                                                    <div [ngClass]="{'horizontal-line': true, 'talent-enabled': heroBuildTierPlacement.heroBuild.talents.e3Talent == 1}"></div>
+                                                    <img src="assets/images/base-H13.png" class="talent-emblem">
+                                                    <div [ngClass]="{'horizontal-line': true, 'talent-enabled': heroBuildTierPlacement.heroBuild.talents.e3Talent == 2}"></div>
+                                                </div>
+                                                <img src="assets/images/{{hero.talents.e3Talents[1].imageName}}"
+                                                     [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.talents.e3Talent != 2}">
+                                            </div>
                                         </div>
                                         <div [ngClass]="{'vertical-line': true, 'vertical-talent-enabled': heroBuildTierPlacement.heroBuild.evolution == 'e4'}"></div>
-                                        <div class="talent-level">
-                                            <img src="assets/images/{{hero.talents.e3Talents[0].imageName}}"
-                                                 [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.talents.e3Talent != 1}">
-                                            <div class="talent-emblem-group">
-                                                <div [ngClass]="{'horizontal-line': true, 'talent-enabled': heroBuildTierPlacement.heroBuild.talents.e3Talent == 1}"></div>
-                                                <img src="assets/images/base-H13.png" class="talent-emblem">
-                                                <div [ngClass]="{'horizontal-line': true, 'talent-enabled': heroBuildTierPlacement.heroBuild.talents.e3Talent == 2}"></div>
-                                            </div>
-                                            <img src="assets/images/{{hero.talents.e3Talents[1].imageName}}"
-                                                 [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.talents.e3Talent != 2}">
+                                        <div>
+                                            <img src="assets/images/base-H14.png" class="talent-emblem">
+                                        </div>
+                                        <div>
+                                            <img src="assets/images/{{hero.talents.e4Talent.imageName}}"
+                                                 [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.evolution != 'e4'}">
                                         </div>
                                     </div>
-                                    <div [ngClass]="{'vertical-line': true, 'vertical-talent-enabled': heroBuildTierPlacement.heroBuild.evolution == 'e4'}"></div>
-                                    <div>
-                                        <img src="assets/images/base-H14.png" class="talent-emblem">
-                                    </div>
-                                    <div>
-                                        <img src="assets/images/{{hero.talents.e4Talent.imageName}}"
-                                             [ngClass]="{'talent-image': true, 'talent-image-disabled': heroBuildTierPlacement.heroBuild.evolution != 'e4'}">
+                                    <div class="stats-container">
+                                        <div>
+                                            <img src="assets/images/ico-xue.png" class="stat-icon">
+                                            <span class="stat-number plus-sign white-text">+</span>
+                                            <span class="stat-number combined-stat white-text">{{getCombinedStats(heroBuildTierPlacement.heroBuild).healthPercent}}</span>
+                                            <span class="stat-number white-text">%</span>
+                                        </div>
+                                        <div>
+                                            <img src="assets/images/ico-gong.png" class="stat-icon">
+                                            <span class="stat-number plus-sign white-text">+</span>
+                                            <span class="stat-number combined-stat white-text">{{getCombinedStats(heroBuildTierPlacement.heroBuild).attackPercent}}</span>
+                                            <span class="stat-number white-text">%</span>
+                                        </div>
+                                        <div>
+                                            <img src="assets/images/ico-fang.png" class="stat-icon">
+                                            <span class="stat-number plus-sign white-text">+</span>
+                                            <span class="stat-number combined-stat non-percent white-text">{{getCombinedStats(heroBuildTierPlacement.heroBuild).armor}}</span>
+                                        </div>
+                                        <div>
+                                            <img src="assets/images/ico-sudu.png" class="stat-icon">
+                                            <span class="stat-number plus-sign white-text">+</span>
+                                            <span class="stat-number combined-stat non-percent white-text">{{getCombinedStats(heroBuildTierPlacement.heroBuild).speed}}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

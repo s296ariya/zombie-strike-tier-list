@@ -1,17 +1,19 @@
-<mat-tab-group>
-    <mat-tab *ngFor="let category of store.categories" label="{{category.name}}">
-        <ng-template matTabContent>
-            <div class="tier-list">
-                <div *ngFor="let tier of filteredTiers(category.key)" class="tier">
-                    <div class="tier-title">
-                        {{tier.name}}
+<div style="margin: 0px 10px 0px 10px;">
+    <mat-tab-group>
+        <mat-tab *ngFor="let category of store.categories" label="{{category.name}}">
+            <ng-template matTabContent>
+                <div class="tier-list">
+                    <div *ngFor="let tier of filteredTiers(category.key)" class="tier">
+                        <div class="tier-title white-text">
+                            {{tier.name}}
+                        </div>
+                        <dashboard-hero *ngFor="let heroBuildPlacement of store.heroBuildPlacementsCategoryTierMap.get(category.key).get(tier.name)"
+                                        [heroBuild]="heroBuildPlacement.heroBuild" [categoryKey]="category.key" [tierName]="tier.name">
+                            {{ heroBuildPlacement.heroBuild.hero.name }}
+                        </dashboard-hero>
                     </div>
-                    <dashboard-hero *ngFor="let heroBuildPlacement of store.heroBuildPlacementsCategoryTierMap.get(category.key).get(tier.name)"
-                    [heroBuild]="heroBuildPlacement.heroBuild" [categoryKey]="category.key" [tierName]="tier.name">
-                        {{ heroBuildPlacement.heroBuild.hero.name }}
-                    </dashboard-hero>
                 </div>
-            </div>
-        </ng-template>
-    </mat-tab>
-</mat-tab-group>
+            </ng-template>
+        </mat-tab>
+    </mat-tab-group>
+</div>

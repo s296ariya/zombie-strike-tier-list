@@ -1,5 +1,5 @@
 .hero {
-    margin: 10px;
+    margin: 0 10px 0 10px;
     width: fit-content;
     border: 10px solid;
 }
@@ -29,6 +29,10 @@
 .name {
     vertical-align: top;
     line-height: 74px;
+}
+
+.build-info {
+    background-color: #36393f;
 }
 
 .top-container {
@@ -151,4 +155,40 @@
 .build-not-found {
     padding-top: 10px;
     font-size: 50px;
+}
+
+.stats-container {
+    margin-left: 10px;
+}
+
+.stat-icon {
+    height: 30px;
+    width: 30px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.stat-number {
+    vertical-align: top;
+    line-height: 36px;
+    font-size: 30px;
+    display: inline-block;
+    text-align: end;
+}
+
+.plus-sign {
+    margin-left: 2px;
+    line-height: 39px;
+}
+
+.base-stat {
+    width: 105px;
+}
+
+.combined-stat {
+    width: 35px;
+}
+
+.non-percent {
+    width: 56px;
 }

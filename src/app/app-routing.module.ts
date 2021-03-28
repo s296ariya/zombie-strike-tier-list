@@ -5,8 +5,7 @@ import { HeroComponent } from "./hero/hero.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/dashboard", pathMatch: "full"},
-    { path: "dashboard", component: DashboardComponent },
+    { path: "", component: DashboardComponent },
     { path: "heroes/:heroCode", component: HeroComponent },
     { path: "**", component: PageNotFoundComponent }
 ];
