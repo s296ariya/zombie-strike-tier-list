@@ -14,7 +14,8 @@
         </a>
     </div>
     <div class="hero-build-bottom-bar">
-        <span *ngIf="showJewelAccessory" class="hero-build-jewel">{{heroBuild.jewel.code}}</span>
+        <span *ngIf="showJewelAccessory" class="hero-build-jewel" matTooltip="{{heroBuild.jewel.name}}"
+              matTooltipShowDelay="300">{{heroBuild.jewel.code}}</span>
         <img *ngIf="showJewelAccessory" src="assets/images/{{heroBuild.accessory.imageName}}"
              class="hero-build-accessory" matTooltip="{{heroBuild.accessory.name}}" matTooltipShowDelay="300">
     </div>
